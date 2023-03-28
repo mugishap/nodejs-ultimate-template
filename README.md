@@ -1,9 +1,8 @@
 <p align="center">
   <a href="" rel="noopener">
- <img width=200px height=200px src="https://i.imgur.com/6wj0hh6.jpg" alt="Project logo"></a>
 </p>
 
-<h3 align="center">nodejs-ultimate-template</h3>
+<h3 align="center">NodeJS Ultimate Template</h3>
 
 <div align="center">
 
@@ -59,10 +58,10 @@ npm run dev
 ```
 
 You will need to change some configurations as in the .env.example
+
 ## 🔧 Running the tests <a name = "tests"></a>
 
 npm run test
-
 
 ## 🎈 Usage <a name="usage"></a>
 
@@ -70,7 +69,7 @@ To consume the API access the /docs route on the server
 
 ## 🚀 Deployment <a name = "deployment"></a>
 
-For deployment then try any online hosting service such as [heroku](https://heroku.com), [railway](https://railway.app) or [render](https://render.com) 
+For deployment then try any online hosting service such as [heroku](https://heroku.com), [railway](https://railway.app) or [render](https://render.com)
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 
