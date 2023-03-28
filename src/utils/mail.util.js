@@ -28,7 +28,7 @@ const sendAccountVerificationEmail = async (email, names, verificationToken) => 
         const info = transporter.sendMail({
             from: process.env.MAIL_USER,
             to: email,
-            subject: "ChatRode Account Verification",
+            subject: "NodeJS Template Account Verification",
             html:
                 `
             <!DOCTYPE html>
@@ -37,7 +37,7 @@ const sendAccountVerificationEmail = async (email, names, verificationToken) => 
                     <h2>Dear ${names}, </h2>
                     <h2> To verify your account. Click the link below</h2>
                     <a href="${process.env.CLIENT_URL}/auth/verify-email/${verificationToken}" style="color:#4200FE;letter-spacing: 2px;">Click here</a>
-                    <p>Best regards,<br>Chat Rode team</p>
+                    <p>Best regards,<br>NodeJS Template team</p>
                 </body>
             </html>
             `
@@ -60,7 +60,7 @@ const sendPaswordResetEmail = async (email, names, passwordResetToken) => {
         const info = transporter.sendMail({
             from: process.env.MAIL_USER,
             to: email,
-            subject: "ChatRode Password Reset",
+            subject: "NodeJS Template Password Reset",
             html:
                 `
             <!DOCTYPE html>
@@ -69,7 +69,7 @@ const sendPaswordResetEmail = async (email, names, passwordResetToken) => {
                     <h2>Dear ${names}, </h2>
                     <h2> Click on the link below to change you password</h2>
                     <a href="${process.env.CLIENT_URL}/auth/reset-password/${passwordResetToken}" style="color:#4200FE;letter-spacing: 2px;">Click here</a>
-                    <p>Best regards,<br>Chat Rode team</p>
+                    <p>Best regards,<br>NodeJS poc team</p>
                 </body>
             </html>
             `

@@ -7,19 +7,23 @@ const UserSchema = new Schema({
         minlength: 4,
         maxlength: 50
     },
-    username: {
-        type: String,
-        required: true,
-        unique: true,
-        minlength: 4,
-        maxlength: 20
-    },
     email: {
         type: String,
         required: true,
         unique: true,
         minlength: 4,
         maxlength: 40
+    },
+    mobile: {
+        type: String,
+        required: false,
+        minlength: 10,
+        maxlength: 15
+    },
+    gender: {
+        type: String,
+        enum: ["MALE", "FEMALE"],
+        required: false
     },
     avatar: {
         type: String,

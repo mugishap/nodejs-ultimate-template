@@ -2,15 +2,15 @@ import Joi from "joi";
 
 // User Validations
 const CreateUserSchema = Joi.object({
-    firstName: Joi.string().required().min(4).max(50),
-    lastName: Joi.string().required().min(4).max(50),
+    fullname: Joi.string().required().min(4).max(50),
     email: Joi.string().email().required().max(40).min(4),
+    mobile: Joi.string().max(15).min(10),
+    gender: Joi.string(),
     password: Joi.string().required().max(16).min(4),
 })
 
 const UpdateUserSchema = Joi.object({
-    firstName: Joi.string().required().min(4).max(50),
-    lastName: Joi.string().required().min(4).max(50),
+    fullname: Joi.string().required().min(4).max(50),
     email: Joi.string().email().required().max(40).min(4),
     avatar: Joi.string(),
     coverImage: Joi.string(),

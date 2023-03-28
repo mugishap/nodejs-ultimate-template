@@ -10,7 +10,7 @@ export const connectDB = async () => {
 
     mongoose.set('strictQuery', true)
     await mongoose.connect(DATABASE_URL, {
-        dbName: "pcommerce",
+        dbName: "nodejs_template",
         useNewUrlParser: true,
         useUnifiedTopology: true,
     }, (err) => {
@@ -24,9 +24,9 @@ export const connectDB = async () => {
     if (_user) return
     const hashed = await bcrypt.hash("admin@pass123", parseInt(process.env.SALT_ROUNDS))
     const user = {
-        firstName: "Admin First Name",
-        lastName: "Admin Last Name",
+        fullname: "Admin First Name",
         email: "admin@gmail.com",
+        mobile:"+250782307144",
         password: hashed,
         role: "ADMIN"
     }

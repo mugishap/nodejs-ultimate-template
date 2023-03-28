@@ -16,12 +16,12 @@ const registerUser = async (req, res) => {
     try {
         const { error } = CreateUserSchema.validate(req.body)
         if (error) return res.status(400).json(new ApiResponse(false, error.details[0].message, null))
-        const { fullname, username, email, password } = req.body
+        const { fullname, email, mobile, password } = req.body
         const hashedPassword = await bcrypt.hash(password, 8)
         const user = new User({
             fullname,
-            username,
             email,
+            mobile,
             password: hashedPassword
         })
         await user.save()
@@ -75,7 +75,7 @@ const updateUser = async (req, res) => {
         if (error) return res.status(400).json(new ApiResponse(false, error.details[0].message, null))
         const user = await User.findById(req.user.id)
         if (!user) return res.status(404).json(new ApiResponse(false, "User not found", null))
-        const { fullname, username, email, avatarString, coverImage } = req.body
+        const { fullname, email, avatarString, coverImage } = req.body
         if (email != user.email) {
             const verification = await Verification.findOne({ user: user._id })
             verification.verified = false
@@ -86,7 +86,6 @@ const updateUser = async (req, res) => {
             user.avatar = avatar
         }
         user.fullname = fullname
-        user.username = username
         user.email = email
         user.coverImage = coverImage
         user.updatedAt = Date.now()
@@ -161,7 +160,7 @@ const getUserReport = async (req, res) => {
 const searchUser = async (req, res) => {
     try {
         const { query } = req.params
-        const users = await User.find({ $or: [{ username: (new RegExp(`${query}`)) }, { email: (new RegExp(`${query}`)) }, { fullname: (new RegExp(`${query}`)) }] })
+        const users = await User.find({ $or: [{ email: (new RegExp(`${query}`)) }, { fullname: (new RegExp(`${query}`)) }] })
         return res.status(200).json(new ApiResponse(true, "Users searched successfully", { users }))
     } catch (error) {
         console.log(error)
